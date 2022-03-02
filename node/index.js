@@ -11,6 +11,10 @@ const config = {
 
 const connection = mysql.createConnection(config)
 
+const sqlCreateTable = `CREATE TABLE people(id int not null auto_increment, name varchar(256) not null, primary key(id))`
+
+connection.query(sqlCreateTable);
+
 const sql1 = `INSERT INTO people(name) VALUES('Alisson'); `
 const sql2 = `INSERT INTO people(name) VALUES('Shirley'); `
 const sql3 = `INSERT INTO people(name) VALUES('Nicolas'); `
