@@ -6,7 +6,7 @@ services:
     build:
       context: node
     image: alissonpinto/fullcycle-node
-    command: node index.js
+    command: bash -c "npm install && node index.js"
     container_name: app
     entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
     networks:
