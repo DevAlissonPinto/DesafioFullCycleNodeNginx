@@ -1,6 +1,8 @@
-FROM node:15-alpine
+FROM node:15
 
 WORKDIR /usr/src/app
+
+RUN apt-get update && apt-get install -y wget
 
 COPY . .
 
@@ -10,5 +12,3 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz 
 
 EXPOSE 3000
-
-CMD [ "node", "index.js" ]
